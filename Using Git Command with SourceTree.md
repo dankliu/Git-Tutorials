@@ -11,118 +11,118 @@
  - 修改程式後操作流程為
 	- commit本地端，push遠端
 
-**1. Git global setup (設定Git全域參數設定)**
-git config --global user.name "xxxxxx輸入使用者名稱"
-git config --global user.email "xxxxxx輸入使用者信箱"
+**1. Git global setup (設定Git全域參數設定)**  
+git config --global user.name "xxxxxx輸入使用者名稱"  
+git config --global user.email "xxxxxx輸入使用者信箱"  
 
-查看已設定全域參數
-git config --list
+查看已設定全域參數  
+git config --list  
 	
-**2. Create a new repository (於遠端複製新的儲存庫)**
-git clone git@gitlab.com:xxxxxx/xxxxxx.git
-cd ITRI-Logistics-Streaming
-touch README.md
-git add README.md
-git commit -m "add README"
-git push -u origin master
-附註：push後的orign表示該遠端remote的名稱，可自行定義
-也可擁有多組遠端儲存庫，可參閱5. Change Remote Path 新增後再push
+**2. Create a new repository (於遠端複製新的儲存庫)**  
+git clone git@gitlab.com:xxxxxx/xxxxxx.git  
+cd ITRI-Logistics-Streaming  
+touch README.md  
+git add README.md  
+git commit -m "add README"  
+git push -u origin master  
+附註：push後的orign表示該遠端remote的名稱，可自行定義  
+也可擁有多組遠端儲存庫，可參閱5. Change Remote Path 新增後再push  
 
-**3. Existing folder or Git repository (於本地已有的儲存庫上傳遠端)**
-cd existing_folder
-git init
-git remote add origin git@gitlab.com:xxxxxx/xxxxxx.git
-git add .
-git commit
-git push -u origin master​
+**3. Existing folder or Git repository (於本地已有的儲存庫上傳遠端)**  
+cd existing_folder  
+git init  
+git remote add origin git@gitlab.com:xxxxxx/xxxxxx.git  
+git add .  
+git commit  
+git push -u origin master​  
 
-**4. Show Remote Path**
-git remote -v
-rigin	https://gitlab.com/xxxxxx/xxxxxx.git (fetch)
-origin	https://gitlab.com/xxxxxx/xxxxxx.git (push)
+**4. Show Remote Path**  
+git remote -v  
+rigin	https://gitlab.com/xxxxxx/xxxxxx.git (fetch)  
+origin	https://gitlab.com/xxxxxx/xxxxxx.git (push)  
 
-**5. Change Remote Path**
-git remote add gitlab git@gitlab.com:xxxxxx/xxxxxx.git (remote add後名稱為給予加入的遠端代號）
-SourceTree設定方式：\Repository\Repository Setting\Remotes Add
+**5. Change Remote Path**  
+git remote add gitlab git@gitlab.com:xxxxxx/xxxxxx.git (remote add後名稱為給予加入的遠端代號)  
+SourceTree設定方式：\Repository\Repository Setting\Remotes Add  
+  
+**6. 新增Add File or Folder**  
+Git使用add指令加入檔案時會進行暫存，表示進入下次Commit狀態  
+可使用git status觀看變化情形  
 
-**6. 新增Add File or Folder**
-Git使用add指令加入檔案時會進行暫存，表示進入下次Commit狀態
-可使用git status觀看變化情形
-
-git add file
-git add folder/
+git add file  
+git add folder/  
 
 **7. 取消Add File or Folder**  
-git rm --cached file
-git rm --cached -r folder/
+git rm --cached file  
+git rm --cached -r folder/  
 
-**8. 新增一個Commit**
-若尚未加入git add暫存清單的檔案則不會加入此次Commit
-git commit
+**8. 新增一個Commit**  
+若尚未加入git add暫存清單的檔案則不會加入此次Commit  
+git commit  
 
-**9. Show Commint Log**
-git log
-65-0A40291-92:GitTest TonyLiu$ git log
-commit 1d27da9d55259247d0c5d33345fc2f28f40c43f5
-Author: TonyLiu <dankliu@gmail.com>
-Date:   Wed Dec 16 14:29:16 2015 +0800
+**9. Show Commint Log**  
+git log  
+65-0A40291-92:GitTest TonyLiu$ git log  
+commit 1d27da9d55259247d0c5d33345fc2f28f40c43f5  
+Author: TonyLiu <dankliu@gmail.com>  
+Date:   Wed Dec 16 14:29:16 2015 +0800  
 
-    Commint v1.00
+    Commint v1.00  
 
-**10. Show File Change Status**
-git status
-65-0A40291-92:bFlier-Price-Compare TonyLiu$ git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
-nothing to commit, working directory clean
+**10. Show File Change Status**  
+git status  
+65-0A40291-92:bFlier-Price-Compare TonyLiu$ git status  
+On branch master  
+Your branch is up-to-date with 'origin/master'.  
+nothing to commit, working directory clean  
 
-嘗試新增一檔案version2.txt，再進行查看狀態即可看到顯示Untracked files:
-若要加入Commit清單暫存可再次進行git add指令加入
+嘗試新增一檔案version2.txt，再進行查看狀態即可看到顯示Untracked files:  
+若要加入Commit清單暫存可再次進行git add指令加入  
 
-65-0A40291-92:GitTest TonyLiu$ git status
-On branch master
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+65-0A40291-92:GitTest TonyLiu$ git status  
+On branch master  
+Untracked files:  
+  (use "git add <file>..." to include in what will be committed)  
 
-	version2.txt
+	version2.txt  
 
-**11. Revert, Rebase取消這次或某次Commit**
-兩者不同點在於Revert可以寫入紀錄，Rebase為直接取消
-git revert
-git rebase -i
+**11. Revert, Rebase取消這次或某次Commit**  
+兩者不同點在於Revert可以寫入紀錄，Rebase為直接取消  
+git revert  
+git rebase -i  
 
-**12. Reset回到某一版本的狀態**
-git log --oneline顯示Commit紀錄
-git log --oneline
-5-0A40291-92:GitTest TonyLiu$ **git log --oneline**
-180e624 Commit v2.00
-1d27da9 Commint v1.00
-65-0A40291-92:GitTest TonyLiu$ **git reset 1d27da9**
-Unstaged changes after reset:
-D	version.txt
+**12. Reset回到某一版本的狀態**  
+git log --oneline顯示Commit紀錄  
+git log --oneline  
+5-0A40291-92:GitTest TonyLiu$ **git log --oneline**  
+180e624 Commit v2.00  
+1d27da9 Commint v1.00  
+65-0A40291-92:GitTest TonyLiu$ **git reset 1d27da9**  
+Unstaged changes after reset:  
+D	version.txt  
 
-**13. Checkout取得某次Commit版本**
-git log --oneline顯示Commit紀錄
-git log --oneline
-5-0A40291-92:GitTest TonyLiu$ **git log --oneline**
-180e624 Commit v2.00
-1d27da9 Commint v1.00
+**13. Checkout取得某次Commit版本**  
+git log --oneline顯示Commit紀錄  
+git log --oneline  
+5-0A40291-92:GitTest TonyLiu$ **git log --oneline**  
+180e624 Commit v2.00  
+1d27da9 Commint v1.00  
 
-65-0A40291-92:GitTest TonyLiu$ **git checkout 1d27da9**
-Previous HEAD position was 180e624... Commit v2.00
-HEAD is now at 1d27da9... Commint v1.00
-65-0A40291-92:GitTest TonyLiu$ ls -l
-total 8
-drwxr-xr-x  2 TonyLiu  staff  68 12 16 14:21 folder
--rw-r--r--  1 TonyLiu  staff  10 12 16 15:06 **version.txt**
+65-0A40291-92:GitTest TonyLiu$ **git checkout 1d27da9**  
+Previous HEAD position was 180e624... Commit v2.00  
+HEAD is now at 1d27da9... Commint v1.00  
+65-0A40291-92:GitTest TonyLiu$ ls -l  
+total 8  
+drwxr-xr-x  2 TonyLiu  staff  68 12 16 14:21 folder  
+-rw-r--r--  1 TonyLiu  staff  10 12 16 15:06 **version.txt**  
 
-5-0A40291-92:GitTest TonyLiu$ **git checkout 180e624**
-Previous HEAD position was 1d27da9... Commint v1.00
-HEAD is now at 180e624... Commit v2.00
-65-0A40291-92:GitTest TonyLiu$ ls -l
-total 8
-drwxr-xr-x  2 TonyLiu  staff  68 12 16 14:21 folder
--rw-r--r--  1 TonyLiu  staff   9 12 16 15:07 **version2.txt**
+5-0A40291-92:GitTest TonyLiu$ **git checkout 180e624**  
+Previous HEAD position was 1d27da9... Commint v1.00  
+HEAD is now at 180e624... Commit v2.00  
+65-0A40291-92:GitTest TonyLiu$ ls -l  
+total 8  
+drwxr-xr-x  2 TonyLiu  staff  68 12 16 14:21 folder  
+-rw-r--r--  1 TonyLiu  staff   9 12 16 15:07 **version2.txt**  
 
 
 ##二、建立新分支branch與合併##
