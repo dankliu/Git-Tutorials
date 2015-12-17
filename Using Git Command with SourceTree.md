@@ -10,6 +10,44 @@
  - 修改程式後操作流程為
 	- commit本地端，push遠端
 
+環境設定幾點須確認與注意事項如下  
+
+- 注意在Mac版本身有自帶Git版本，可於終端機執行which git查看路徑  
+正常在安裝完成官方Git後正確位置會在：/usr/local/bin/git  
+65-0A40291-92:~ TonyLiu$ which git  
+/usr/local/bin/git  
+
+- 查看Git版本號碼git --version
+65-0A40291-92:~ TonyLiu$ git --version
+git version 2.6.3
+
+- 確認SourceTree有將git版本指向本機/usr/local/bin/git  
+或是也可使用Embedded Git，若是不想安裝Git也是不錯的選擇，若SourceTree自帶Git版本較低  
+進行SourceTree update即可  
+![enter image description here](https://lh3.googleusercontent.com/-jL2ghjPDd5Q/VnIinKc9WZI/AAAAAAAACTg/9FBTQxayLMQ/s0/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2015-12-17+%25E4%25B8%258A%25E5%258D%258810.41.40.png "螢幕快照 2015-12-17 上午10.41.40.png")
+
+- 嘗試Clone或Create Repository本地專案，確認專案夾內.git資料是否完整  
+避免有時出現沒有包含到templates，而出現如下訊息    
+"warning: templates not found /usr/local/git/share/git-core/templates"  
+
+**.git隱藏資料夾內應出現如下文件檔案內容**  
+
+    5-0A40291-92:GitTEST TonyLiu$ cd .git/  
+    65-0A40291-92:.git TonyLiu$ ls -l -a  
+    total 32  
+    drwxr-xr-x  11 TonyLiu  staff  374 12 17 10:41 .  
+    drwxr-xr-x   3 TonyLiu  staff  102 12 17 10:25 ..  
+    -rw-r--r--   1 TonyLiu  staff   23 12 17 10:25 HEAD  
+    drwxr-xr-x   2 TonyLiu  staff   68 12 17 10:25 branches  
+    -rw-r--r--   1 TonyLiu  staff  137 12 17 10:25 config  
+    -rw-r--r--   1 TonyLiu  staff   73 12 17 10:25 description  
+    drwxr-xr-x  11 TonyLiu  staff  374 12 17 10:25 hooks  
+    drwxr-xr-x   3 TonyLiu  staff  102 12 17 10:25 info  
+    drwxr-xr-x   4 TonyLiu  staff  136 12 17 10:25 objects  
+    drwxr-xr-x   4 TonyLiu  staff  136 12 17 10:25 refs  
+    -rw-r--r--@  1 TonyLiu  staff  156 12 17 10:41 sourcetreeconfig 
+
+
 **1. Git global setup (設定Git全域參數設定)**  
 git config --global user.name "xxxxxx輸入使用者名稱"  
 git config --global user.email "xxxxxx輸入使用者信箱"  
