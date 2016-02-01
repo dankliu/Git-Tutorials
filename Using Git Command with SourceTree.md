@@ -47,6 +47,20 @@ git version 2.6.3
     drwxr-xr-x   4 TonyLiu  staff  136 12 17 10:25 refs  
     -rw-r--r--@  1 TonyLiu  staff  156 12 17 10:41 sourcetreeconfig 
 
+- 如果於Clone或新建一個Repository出現如下資訊，且在.git資料夾內沒有完整的templates檔案 ex, hooks
+"warning: templates not found /usr/local/git/share/git-core/templates"  
+
+- 察看SourceTree Log記錄可啟動於此：Tool\Options\ 勾選Always display full console output
+開啟後若Clone有上述錯誤資訊可用如下方式排除  
+![enter image description here](https://lh3.googleusercontent.com/-9lvxP1_ltjs/Vq67L1uT4PI/AAAAAAAACU0/yfY9xN6cRro/s0/2016-01-31_235213.jpg "2016-01-31_235213.jpg")  
+
+- Step 1. 打開在C:\Users\Dank Liu(帳號目錄)\.gitconfig  
+加入[init]：templatedir路徑  
+![enter image description here](https://lh3.googleusercontent.com/-75M7M-yCReM/Vq68330SOhI/AAAAAAAACVE/WPjnOw6Ktgw/s0/2016-01-31_233911.jpg "2016-01-31_233911.jpg")  
+- Step 2. 再次Clone檢查.git隱藏資料夾內是否有hooks/ info/ description  
+![enter image description here](https://lh3.googleusercontent.com/-FB_8QbIN1vA/Vq69FFAudhI/AAAAAAAACVQ/ojzgW_HX4h4/s0/2016-01-31_233610.jpg "2016-01-31_233610.jpg")  
+- Step 3. 另SourceTree Git Version版本選擇盡量勾選Use System Git與系統相符合會比較好，原因在於有的IDE(eclipse, IDEA, Xcode)會自己帶入系統安裝Git來顯示異動，因此版本上應會比較同步。  
+![enter image description here](https://lh3.googleusercontent.com/-REPaUQs4a-8/Vq69iUtgmYI/AAAAAAAACVc/hg6xofDd36A/s0/2016-01-31_233753.jpg "2016-01-31_233753.jpg")  
 
 **1. Git global setup (設定Git全域參數設定)**  
 git config --global user.name "xxxxxx輸入使用者名稱"  
